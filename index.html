@@ -3,23 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aayusha Rantija</title>
+  <title>Aayusha Rantija | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    .typing-cursor {
+      border-right: 2px solid currentColor;
+      padding-right: 4px;
+      animation: blink .7s infinite;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .project-card {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,.12);
+    }
+  </style>
+
 </head>
 
 <body>
 <div class="bg-amber-50">
   <nav class="fixed top-0 left-0 right-0 z-50 bg-amber-50 border-b border-green-900">
     <div class="mx-auto px-6 py-4 flex justify-between items-center">
-      <span class="text-xl text-green-900 font-bold">AM</span>
+      <div class="flex items-center gap-4">
+          <span class="text-xl text-green-900 font-bold">AM</span>
+        </div>
       <ul class="hidden md:flex gap-8 text-sm">
         <li><a href="#hero" class="hover:text-green-500 transition">Home</a></li>
         <li><a href="#about" class="hover:text-green-500 transition">About</a></li>
         <li><a href="#skills" class="hover:text-green-500 transition">Skills</a></li>
         <li><a href="#education" class="hover:text-green-500 transition">Education</a></li>
         <li><a href="#experience" class="hover:text-green-500 transition">Experience</a></li>
+        <li><a href="#projects" class="hover:text-green-500 transition">Projects</a></li>
         <li><a href="#contact" class="hover:text-green-500 transition">Contact</a></li>
       </ul>
     </div>
@@ -32,7 +63,9 @@
           <span class="italic text-emerald-800">Rantija</span>
         </h1>
         <p class="text-lg font-light mt-6 mb-8" style="font-family: 'Poppins', sans-serif;">
-          Computer Engineering student at GCES, Pokhara building responsive, modern web experiences that feel as good as they look.
+          <span id="typing-text" class="text-emerald-800 font-medium typing-cursor"></span>
+          <br>
+          Building responsive, modern web experiences that feel as good as they look.
         </p>
         <div class="flex gap-4">
           <a href="#contact" class="bg-green-900 text-white px-9 py-3 rounded font-semibold hover:bg-emerald-600 transition">Contact Me</a>
@@ -58,7 +91,7 @@
         </div>
   </section>
 
-  <section id="about" class="py-16 px-16 bg-emerald-900 ">
+  <section id="about" class="reveal py-16 px-16 bg-emerald-900 ">
     <div class="max-w-5xl mx-auto grid  gap-12 items-center">
       <div class="md:col-span-1">
         <h2 class="text-5xl leading-tight text-amber-50 font-semibold mb-8">About <span class="italic">Me</span></h2>
@@ -81,7 +114,7 @@
  
   </section>
 
-  <section id="skills" class="py-16 px-6 bg-amber-50">
+  <section id="skills" class="reveal py-16 px-6 bg-amber-50">
     <div class="max-w-5xl mx-auto">
     <div class="bg-white rounded-2xl p-8 border border-green-700 hover:shadow-xl transition">
       <div class="mb-12">
@@ -110,6 +143,12 @@
                 <div class="flex justify-between mb-1 text-sm font-medium"><span>Tailwind CSS</span></div>
               </div>
             </li>
+             <li class="flex items-center gap-4">
+              <i class="devicon-javascript-plain colored text-4xl"></i>
+              <div class="flex-1">
+                <div class="flex justify-between mb-1 text-sm font-medium"><span>Javascript</span></div>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -120,6 +159,12 @@
               <i class="devicon-github-original text-4xl"></i>
               <div class="flex-1">
                 <div class="flex justify-between mb-1 text-sm font-medium"><span>GitHub</span></div>
+              </div>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="devicon-git-plain colored text-4xl"></i>
+              <div class="flex-1">
+                <div class="flex justify-between mb-1 text-sm font-medium"><span>Git</span></div>
               </div>
             </li>
             <li class="flex items-center gap-4">
@@ -135,7 +180,21 @@
     </div>
   </section>
 
-  <section id="education" class="py-16 px-6 md:px-24 bg-green-900">
+
+  <section id="projects" class="py-16 px-6 bg-green-100 reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12">
+        <h2 class="text-5xl text-emerald-900 font-semibold">Projects</h2>
+        <p class="mt-3 text-slate-600">A few things I have built while learning and practicing development.</p>
+      </div>
+      <div id="projects-container" class="grid md:grid-cols-3 gap-6"></div>
+    </div>
+    <div>
+      <p class="text-center mt-12">More projects can be found on my github profile: <a href="https://github.com/AayushaRantija" target="_blank" class="text-emerald-500 hover:underline">github.com/AayushaRantija</a></p>
+    </div>
+  </section>
+
+  <section id="education" class="reveal py-16 px-6 md:px-24 bg-green-900">
     <div class="max-w-5xl mx-auto">
       <div class="mb-12">
         <h2 class="text-5xl text-amber-50 font-semibold">Education</h2>
@@ -169,7 +228,7 @@
     </div>
   </section>
 
-  <section id="experience" class="py-16 px-6 bg-amber-50">
+  <section id="experience" class="reveal py-16 px-6 bg-amber-50">
     <div class="max-w-5xl mx-auto">
       <div class="mb-12">
         <h2 class="text-5xl text-green-900 font-semibold">Experience</h2>
@@ -182,10 +241,10 @@
               <h3 class="font-semibold text-xl">Frontend Development Intern</h3>
               <p class="text-green-600 font-medium mt-1">Yeti Nepal</p>
             </div>
-            <p class="bg-green-50 border border-green-600 rounded-full px-4 py-1 text-xs font-medium mb-6">June 2026 – Present</p>
+            <p class="bg-green-50 border border-green-600 rounded-full px-4 py-1 text-xs font-medium mb-6">June 2026 – August 2026</p>
           </div>
           <ul class="space-y-2 text-slate-600">
-            <li class="flex gap-2 items-start">Built responsive web pages using HTML, CSS, and Tailwind CSS.</li>
+            <li class="flex gap-2 items-start">Built responsive web pages using HTML, CSS, Tailwind CSS and javascript.</li>
             <li class="flex gap-2 items-start">Collaborated with mentors on real-world projects.</li>
           </ul>
         </div>
@@ -194,7 +253,7 @@
     </div>
   </section>
 
-  <section id="contact" class="py-20 px-6 bg-green-900 text-cream">
+  <section id="contact" class="reveal py-20 px-6 bg-green-900 text-cream">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-6xl text-amber-50 mb-8">Let's<br/><span class="italic">Connect</span></h2>
 
@@ -211,8 +270,129 @@
   </section>
 
   <footer class="bg-green-900 border-t  py-6 text-center text-slate-300 text-sm">
-    © 2026 Aayusha Magar
+    © <span id="current-year"></span> Aayusha Magar
   </footer>
 </div>
+
+<script>
+  // -----------------------------
+  // 1. Typing effect
+  // -----------------------------
+  const roles = [
+    "Computer Engineering Student",
+    "Frontend Developer",
+    "JavaScript Learner",
+    "Creative Developer"
+  ];
+
+  const typingText = document.getElementById("typing-text");
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeRole() {
+    const currentRole = roles[roleIndex];
+
+    if (!deleting) {
+      typingText.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentRole.length) {
+        deleting = true;
+        setTimeout(typeRole, 1400);
+        return;
+      }
+    } else {
+      typingText.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
+    }
+
+    setTimeout(typeRole, deleting ? 55 : 90);
+  }
+
+  typeRole();
+
+
+  // -----------------------------
+  // 2. Dynamic projects
+  // -----------------------------
+  const projects = [
+    {
+      title: "Expense Tracker",
+      description: "A simple expense tracker for adding and displaying daily expenses.",
+      tech: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/AayushaRantija/javascript/tree/main/expense%20tracker"
+    },
+    {
+      title: "Notes App",
+      description: "A browser-based notes application using contentEditable and LocalStorage.",
+      tech: ["HTML", "CSS", "JavaScript", "LocalStorage"],
+      github: "https://github.com/AayushaRantija/javascript/tree/main/notesapp"
+    },
+    {
+      title: "Random Quote Generator",
+      description: "Fetches a random quote from an API and displays it dynamically.",
+      tech: ["HTML", "CSS", "JavaScript", "API"],
+      github: "https://github.com/AayushaRantija/javascript/tree/main/QR%20Code%20Generator"
+    }
+  ];
+
+  const projectsContainer = document.getElementById("projects-container");
+
+  projects.forEach(project => {
+    const card = document.createElement("div");
+    card.className = "project-card bg-white rounded-2xl p-7 border border-green-900";
+
+    card.innerHTML = `
+
+      <h3 class="text-xl font-semibold text-green-900 mb-3">${project.title}</h3>
+      <p class="text-slate-600 text-sm leading-6 mb-5">${project.description}</p>
+
+      <div class="flex flex-wrap gap-2 mb-6">
+        ${project.tech.map(item =>
+          `<span class="text-xs bg-emerald-50 border border-emerald-700 px-3 py-1 rounded-full">${item}</span>`
+        ).join("")}
+      </div>
+
+      <a href="${project.github}" target="_blank"
+         class="inline-block bg-green-900 text-white px-5 py-2 rounded hover:bg-emerald-600 transition text-sm">
+        View GitHub
+      </a>
+    `;
+
+    projectsContainer.appendChild(card);
+  });
+
+
+  // -----------------------------
+  // 3. Scroll reveal animation
+  // -----------------------------
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  revealElements.forEach(element => observer.observe(element));
+
+
+  // -----------------------------
+  // 4. Dynamic copyright year
+  // -----------------------------
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
+</script>
+
 </body>
 </html>
